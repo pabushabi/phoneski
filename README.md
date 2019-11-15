@@ -15,6 +15,11 @@ npm run serve
 npm run build
 ```
 
+### Start node server
+```
+node api/index.js
+```
+
 ### Run your tests
 ```
 npm run test
