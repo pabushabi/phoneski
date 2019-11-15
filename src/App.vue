@@ -1,28 +1,25 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <v-app>
+        <v-app-bar elevate-on-scroll app>
+            <v-toolbar-title class="headline text-uppercase ml-12">
+                <router-link to="/" style="text-decoration: none; color: inherit" class="font-weight-light">PHONESKI</router-link>
+                <span class="font-weight-light text-lowercase"> is a <span class="primary--text">phone</span> tracking app</span>
+            </v-toolbar-title>
+            <v-spacer></v-spacer>
+            <login-form v-if="this.$route.path !== '/calls'" :btn="{text: true, color: 'primary', dark: true, body: 'Войти'}"/>
+            <login-form v-if="this.$route.path !== '/calls'" is-signup :btn="{text: true, class: 'mr-12', body: 'Регистрация'}"/>
+        </v-app-bar>
+        <router-view/>
+    </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+    import LoginForm from '@/components/login-form'
 
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+    export default {
+        name: 'App',
+        components: {LoginForm},
+        data: () => ({}),
+        methods: {},
+    };
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
